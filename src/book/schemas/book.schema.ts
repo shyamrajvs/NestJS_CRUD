@@ -1,0 +1,32 @@
+/* eslint-disable prettier/prettier */
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+
+export enum Category{
+    ADVENTURE = 'Adventure',
+    CLASSICS = 'Classics',
+    CRIME = 'Crime',
+    FANTACY = 'Fantacy',
+}
+
+@Schema({
+    timestamps:true
+})
+
+export class Book{
+    @Prop()
+    title:string;
+
+    @Prop()
+    description:string;
+
+    @Prop()
+    auther:string;
+
+    @Prop()
+    price:number;
+
+    @Prop()
+    category:Category;
+}
+
+export const BookSchema = SchemaFactory.createForClass(Book);
